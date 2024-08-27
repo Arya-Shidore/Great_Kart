@@ -1,0 +1,36 @@
+
+{%extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<section class="section-intro padding-y-sm">
+	<div class="container">
+	
+	<div class="intro-banner-wrap">
+		<img src="{% static 'images/coverpage.png' %}" class="img-fluid rounded">
+	</div>
+	
+	</div> <!-- container //  -->
+</section>
+	
+<div class="row">
+    {% for i in product %}
+	<div class="col-md-3">
+        <div class="card card-product-grid">
+            <a href="{{i.get_url}}" class="img-wrap"> <img src="{{ i.images.url }}"> </a>
+            {% comment %} <a href="./product-detail.html" class="img-wrap"> <img src="https://source.unsplash.com/random/200x200?sig=1"> </a> {% endcomment %}
+			<figcaption class="info-wrap">
+				<a href="{{i.get_url}}" class="title">{{i.product_name}}</a>
+				<div class="price mt-1">${{i.price}}</div> <!-- price-wrap.// -->
+			</figcaption>
+		</div>
+	</div> <!-- col.// -->
+    {% endfor %}
+</div> <!-- row.// -->
+
+</div><!-- container // -->
+</section>
+<!-- ========================= SECTION  END// ========================= -->
+
+
+{% endblock %}
